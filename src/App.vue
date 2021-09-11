@@ -1,6 +1,7 @@
 <template>
   <div>
-    <button @click="$router.push('/registerStore')">registerStore</button>
+    <v-btn @click="$router.push('/registerStore')">registerStore</v-btn>
+    <v-btn @click="$router.push('/manage')">manage</v-btn>
 
     <router-view></router-view>
 
@@ -79,20 +80,20 @@ export default {
   bottom: 0;
   margin: 0 auto;
   background: lightgray;
-  width: 600px;
-  height: 60px;
+  width: 414px;
+  height: 40px;
   border-radius: 15px 15px 0px 0px;
 }
 .gnb > div {
   float: left;
-  width: 120px;
-  height: 60px;
+  width: calc(414px/5);
+  height: 40px;
   text-align: center;
-  line-height: 60px;
+  line-height: 40px;
 }
 .gnb > div > span {
   cursor: default;
-  font-size: 24px;
+  font-size: 16px;
   vertical-align: middle;
 }
 .gnb > div.active {

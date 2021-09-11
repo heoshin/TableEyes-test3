@@ -10,6 +10,7 @@ import History from '@/views/History.vue'
 import MyPage from '@/views/MyPage.vue'
 import StorePage from '@/views/StorePage.vue'
 import RegisterStore from '@/views/RegisterStore.vue'
+import Manage from '@/views/Manage.vue'
 
 const routes = [
   {
@@ -43,6 +44,10 @@ const routes = [
   {
     path: "/registerStore",
     component: RegisterStore,
+  },
+  {
+    path: "/manage",
+    component: Manage,
   },
 ];
 
