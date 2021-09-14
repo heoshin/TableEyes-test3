@@ -3,12 +3,14 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-import Home from '@/views/Home.vue'
+
+import Search from '@/views/Search.vue'
 import WishList from '@/views/WishList.vue'
+import Home from '@/views/Home.vue'
 import StoreList from '@/views/StoreList.vue'
 import History from '@/views/History.vue'
 import MyPage from '@/views/MyPage.vue'
-import StorePage from '@/views/StorePage.vue'
+// import StorePage from '@/views/StorePage.vue'
 import RegisterStore from '@/views/RegisterStore.vue'
 import Manage from '@/views/Manage.vue'
 
@@ -23,7 +25,7 @@ const routes = [
   },
   {
     path: "/search",
-    component: StorePage,
+    component: Search,
   },
   {
     path: "/wishList",
