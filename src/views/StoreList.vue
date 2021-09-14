@@ -1,14 +1,5 @@
 <template>
   <div>
-    <input />
-    <button @click="sendGet">get</button>
-    <button @click="sendPost">post</button>
-    <button @click="sendDelete">delete</button>
-    <button @click="sendPatch">patch</button>
-    <button @click="sendPut">put</button>
-    <button @click="signUp">signUp</button>
-    <button @click="login">login</button>
-
     <div class="map"></div>
     <SortSelector id="sort-selector" />
     <Card class="card" v-for="store in stores" :key="store" :store="store" />
@@ -130,7 +121,7 @@ export default {
     },
   },
   mounted() {
-    axios.get("http://koldin.myddns.me:4004/store/All").then((response) => {
+    axios.get("http://koldin.myddns.me:4004/store/type/id/category").then((response) => {
       console.log(response)
       this.stores = response.data;
     });
@@ -147,8 +138,7 @@ export default {
   margin: 0;
 }
 .map {
-  width: 600px;
-  height: 400px;
+  width: inherit;  height: 300px;
   margin: 0 auto;
   background: lightgray;
 }
