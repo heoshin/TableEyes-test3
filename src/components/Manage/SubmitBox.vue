@@ -27,6 +27,7 @@ export default {
   props: {
     submitKeys: Array,
     path: String,
+    type: String,
   },
   data() {
     return {
@@ -35,20 +36,55 @@ export default {
   },
   methods: {
     submit() {
-      let url = "http://koldin.myddns.me:4004/" + this.path;
-      let config = {
-        headers: {
-          "Content-Type": "application/json",
+      console.log("submit!");
+      if (this.type == "get") {
+        let url = "http://koldin.myddns.me:4004/" + this.path;
+        console.log("request get: " + url);
+        this.get(url);
+      }
+      // let url = "http://koldin.myddns.me:4004/" + this.path;
+      // let config = {
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      // };
+      // axios
+      //   .post(url, this.submitData, config)
+      //   .then((res) => {
+      //     console.log(res);
+      //   })
+      //   .then((res) => {
+      //     console.log(res);
+      //   });
+    },
+    // submitAjax() {
+    //   let url = "http://koldin.myddns.me:4004/" + this.path;
+    //   let config = {
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //   };
+    //   axios
+    //     .post(url, this.submitData, config)
+    //     .then((res) => {
+    //       console.log(res);
+    //     })
+    //     .then((res) => {
+    //       console.log(res);
+    //     });
+    // },
+    get(url) {
+      $.ajax({
+        url: url,
+        type: "get",
+        success: (res) => {
+          console.log(res);
+          this.stores = res;
         },
-      };
-      axios
-        .post(url, this.submitData, config)
-        .then((res) => {
-          console.log(res);
-        })
-        .then((res) => {
-          console.log(res);
-        });
+      });
+    },
+    save() {
+      console.log("save");
     },
   },
 };
