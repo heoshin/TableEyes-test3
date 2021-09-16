@@ -1,15 +1,11 @@
 <template>
   <div>
-    <v-row justify="center">
-      <v-col cols="12" sm="10" md="8" lg="6">
-        <h1>SignUp</h1>
-        <SubmitBox :submitKeys="signUpKeys" path="sign-up" />
-      </v-col>
-      <v-col cols="12" sm="10" md="8" lg="6">
-        <h1>Login</h1>
-        <SubmitBox :submitKeys="loginKeys" path="login" />
-      </v-col>
-    </v-row>
+    <h1>Get</h1>
+    <SubmitBox type="get" />
+    <h1>SignUp</h1>
+    <SubmitBox :submitKeys="signUpKeys" path="sign-up" />
+    <h1>Login</h1>
+    <SubmitBox :submitKeys="loginKeys" path="login" />
   </div>
 </template>
 

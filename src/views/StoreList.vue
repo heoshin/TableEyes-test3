@@ -34,13 +34,11 @@ export default {
     sendPost() {
       console.log("sendPost");
       let params = {
-        location: 10
+        location: 10,
       };
-      axios
-        .post("http://koldin.myddns.me:4004/sort/", params)
-        .then((res) => {
-          console.log(res);
-        });
+      axios.post("http://koldin.myddns.me:4004/sort/", params).then((res) => {
+        console.log(res);
+      });
     },
     sendGet() {
       axios.get("http://koldin.myddns.me:4004/store").then((res) => {
@@ -48,11 +46,9 @@ export default {
       });
     },
     sendDelete() {
-      axios
-        .delete("http://koldin.myddns.me:4004/store/" + 40)
-        .then((res) => {
-          console.log(res);
-        });
+      axios.delete("http://koldin.myddns.me:4004/store/" + 40).then((res) => {
+        console.log(res);
+      });
     },
     sendPatch() {
       axios
@@ -121,9 +117,20 @@ export default {
     },
   },
   mounted() {
-    axios.get("http://koldin.myddns.me:4004/store/type/id/category").then((response) => {
-      console.log(response)
-      this.stores = response.data;
+    // axios
+    //   .get("http://koldin.myddns.me:4004/store/type/id/category")
+    //   .then((response) => {
+    //     console.log(response);
+    //     this.stores = response.data;
+    //   });
+
+    $.ajax({
+      url: "http://koldin.myddns.me:4004/store/type/id/category",
+      type: "get",
+      success: (res) => {
+        console.log(res);
+        this.stores = res;
+      },
     });
   },
   components: {
@@ -138,7 +145,8 @@ export default {
   margin: 0;
 }
 .map {
-  width: inherit;  height: 300px;
+  width: inherit;
+  height: 300px;
   margin: 0 auto;
   background: lightgray;
 }
