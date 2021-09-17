@@ -8,7 +8,7 @@
       <article class="information">
         <p class="informationFont">정보를 입력해주세요</p>
         <div class="ownerInformation">
-          <div class="checkBox">
+          <div class="MainCheckBox">
             <img src="../assets/img/check.png" alt="" class="checkImg" />
           </div>
           <a href="#">
@@ -172,6 +172,159 @@
       </a>
     </footer> -->
     </form>
+    <!-- <header>
+      <div class="progressBox">
+        <div class="progress-chart">
+          <div class="progress-bar" style="width: 100%"></div>
+        </div>
+        <div class="progressTextBox">
+          <span>4</span><span class="progressFont">/4</span>
+        </div>
+      </div>
+    </header> -->
+    <form>
+      <section>
+        <div class="titleBox">
+          <p class="title">카테고리 / 편의시설 설정</p>
+        </div>
+        <article class="boxSize">
+          <p class="subTitle">카테고리</p>
+          <div class="categoryList">
+            <div class="categoryBox" id="ft" onclick="changer(0)">
+              <div class="imgCircle">
+                <img
+                  src="../assets/img/black/Cafe.png"
+                  alt=""
+                  class="categoryImg"
+                />
+              </div>
+              <!--.categoryImg.src = "../assets/img/black/B-call.png" -->
+              <span class="categoryName">카페</span>
+            </div>
+            <div class="categoryBox" onclick="changer(1)">
+              <div class="imgCircle">
+                <img
+                  src="../assets/img/black/Game.png"
+                  alt=""
+                  class="categoryImg"
+                />
+              </div>
+              <span class="categoryName">게임</span>
+            </div>
+            <div class="categoryBox" onclick="changer(2)">
+              <div class="imgCircle">
+                <img
+                  src="../assets/img/black/Sing.png"
+                  alt=""
+                  class="categoryImg"
+                />
+              </div>
+              <span class="categoryName">노래</span>
+            </div>
+            <div class="categoryBox" onclick="changer(3)">
+              <div class="imgCircle">
+                <img
+                  src="../assets/img/black/Sport.png"
+                  alt=""
+                  class="categoryImg"
+                />
+              </div>
+              <span class="categoryName">스포츠</span>
+            </div>
+            <div class="categoryBox" onclick="changer(4)">
+              <div class="imgCircle">
+                <img
+                  src="../assets/img/black/Other.png"
+                  alt=""
+                  class="categoryImg"
+                />
+              </div>
+              <span class="categoryName">기타</span>
+            </div>
+          </div>
+        </article>
+        <article class="facilitiesBox">
+          <p class="subTitle">편의시설</p>
+          <div class="checkingManager" style="margin-right: 40px">
+            <div class="checkBox">
+              <input type="checkbox" id="ck-1" /><label for="ck-1"
+                >주차가능</label
+              >
+            </div>
+            <div class="checkBox">
+              <input type="checkbox" id="ck-2" /><label for="ck-2"
+                >인터넷</label
+              >
+            </div>
+            <div class="checkBox">
+              <input type="checkbox" id="ck-3" /><label for="ck-3"
+                >단체석</label
+              >
+            </div>
+            <div class="checkBox">
+              <input type="checkbox" id="ck-4" /><label for="ck-4"
+                >지역화폐</label
+              >
+            </div>
+            <div class="checkBox">
+              <input type="checkbox" id="ck-5" /><label for="ck-5"
+                >대관서비스</label
+              >
+            </div>
+            <div class="checkBox">
+              <input type="checkbox" id="ck-6" /><label for="ck-6"
+                >유아 놀이방</label
+              >
+            </div>
+            <div class="checkBox">
+              <input type="checkbox" id="ck-7" /><label for="ck-7"
+                >남녀 화장실 구분</label
+              >
+            </div>
+            <div class="checkBox">
+              <input type="checkbox" id="ck-8" /><label for="ck-8"
+                >장애인 편의시설</label
+              >
+            </div>
+            <div class="checkBox">
+              <input type="checkbox" id="ck-9" /><label for="ck-9"
+                >흡연실</label
+              >
+            </div>
+            <div class="checkBox">
+              <input type="checkbox" id="ck-10" /><label for="ck-10"
+                >콘센트</label
+              >
+            </div>
+          </div>
+          <div class="checkingManager">
+            <div class="checkBox">
+              <input type="checkbox" id="ck-11" /><label for="ck-11"
+                >24시간 운영</label
+              >
+            </div>
+            <div class="checkBox">
+              <input type="checkbox" id="ck-12" /><label for="ck-12"
+                >노키즈존</label
+              >
+            </div>
+            <div class="checkBox">
+              <input type="checkbox" id="ck-13" /><label for="ck-13"
+                >주차가능</label
+              >
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- <footer>
+        <a href="./newStore-2.html" type="submit"
+          ><button class="next" onclick="location.href='./newStore-2.html'">
+            다음으로
+          </button></a
+        >
+      </footer> -->
+    </form>
   </div>
 </template>
 
@@ -203,7 +356,7 @@ header {
   position: fixed;
 
   top: 0;
-  left: 0;
+  left: 38%;
   background-color: #fff;
 
   width: 414px;
@@ -216,7 +369,7 @@ footer {
   position: fixed;
 
   bottom: 0;
-  left: 0;
+  left: 38%;
 
   background-color: #fff;
 }
@@ -287,7 +440,7 @@ header p {
   box-shadow: 0px 0px 19px rgba(0, 0, 0, 0.1);
 }
 
-.checkBox,
+.MainCheckBox,
 .uncheckBox {
   float: left;
   width: 33px;
@@ -296,7 +449,7 @@ header p {
   border-radius: 15px 0px 0px 15px;
 }
 
-.checkBox {
+.MainCheckBox {
   background: #c4c4c4;
 }
 
@@ -500,10 +653,12 @@ header p {
   font-family: Roboto;
   font-style: normal;
   font-weight: 600;
-  font-size: 22px;
+  font-size: 18px;
   letter-spacing: -0.3px;
 
   margin-top: 23px;
+
+  width: 300px;
 }
 /* 선택됐을 때 테두리 보라색 */
 input:focus {
@@ -573,5 +728,141 @@ footer a {
   letter-spacing: 4.7px;
 
   color: #ffffff;
+}
+
+.categoryList {
+  display: flex;
+  justify-content: space-between;
+}
+
+.categoryBox {
+  display: inline-block;
+  text-align: center;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+
+  letter-spacing: -0.3px;
+}
+
+.categoryImg {
+  width: 25px;
+  height: 25px;
+
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+
+.imgCircle {
+  position: relative;
+  display: block;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #ebeef3;
+
+  margin-bottom: 10px;
+  margin-top: 15px;
+}
+
+.facilitiesBox {
+  width: 414px;
+  box-sizing: border-box;
+  padding: 0px 20px;
+}
+
+.checkingManager {
+  width: 167px;
+  float: left;
+  margin-top: 15px;
+}
+
+.checkBox label {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+
+  letter-spacing: -0.3px;
+
+  color: #6f7198;
+}
+
+.checkBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  width: 161px;
+
+  margin-bottom: 7px;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+input[type="checkbox"] + label {
+  width: 154px;
+  height: 19px;
+  vertical-align: middle;
+  background: url(../assets/img/uncheck.png) right no-repeat;
+  background-size: 15px;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked + label {
+  background: url(../assets/img/check.png) right no-repeat;
+  background-size: 15px;
+}
+
+footer {
+  display: block;
+  width: 414px;
+  height: 200px;
+}
+
+footer a {
+  display: inline-block;
+  width: 374px;
+  height: 70px;
+
+  margin: 46px 20px;
+}
+
+.next {
+  border: none;
+
+  width: 374px;
+  height: 70px;
+  /* 모든 입력창에 입력이 되어 있으면 
+    background: #BEBEBE;색으로 버튼색이 바뀜 */
+  background: #f2cfff;
+  border-radius: 15px;
+
+  text-align: center;
+  line-height: 70px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 23px;
+
+  text-align: center;
+  letter-spacing: 4.7px;
+
+  color: #ffffff;
+}
+
+.mdtimepicker {
+  width: 414px;
+}
+.mdtimepicker .mdtp__wrapper {
+  top: 20%;
+  bottom: auto;
 }
 </style>
