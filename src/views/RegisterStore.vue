@@ -5,38 +5,17 @@
   </header> -->
 
     <section class="storeMain">
-      <article class="information">
+      <!-- <article class="information">
         <p class="informationFont">정보를 입력해주세요</p>
-        <div class="ownerInformation">
-          <div class="MainCheckBox">
-            <img src="../assets/img/check.png" alt="" class="checkImg" />
-          </div>
-          <a href="#">
-            <div class="informationBox">
-              <p class="boxTitle">사업자 정보</p>
-              <p class="boxContent">
-                사업자 등록증의 상표, 사업자 등록증의 대표자 입력, 사업자
-                등록번호
-              </p>
-            </div>
-          </a>
-        </div>
-
-        <div class="storeInformation">
-          <div class="uncheckBox">
-            <img src="../assets/img/uncheck.png" alt="" class="uncheckImg" />
-          </div>
-          <a href="">
-            <div class="informationBox">
-              <p class="boxTitle">가게 정보</p>
-              <p class="boxContent">
-                사업자 등록증의 상표, 사업자 등록증의 대표자 입력, 사업자
-                등록번호
-              </p>
-            </div>
-          </a>
-        </div>
-      </article>
+        <InformationCard
+          title="사업자 정보"
+          description="사업자 등록증의 상표, 사업자 등록증의 대표자 입력, 사업자 등록번호"
+        />
+        <InformationCard
+          title="매장 정보"
+          description="사업자 등록증의 상표, 사업자 등록증의 대표자 입력, 사업자 등록번호"
+        />
+      </article> -->
       <article class="doubleCheck">
         <div class="doubleCheckBox">
           <p class="doubleCheckFont">마지막으로</p>
@@ -172,6 +151,8 @@
       </a>
     </footer> -->
     </form>
+
+    <!-- 가게정보페이지-4 -->
     <!-- <header>
       <div class="progressBox">
         <div class="progress-chart">
@@ -325,11 +306,94 @@
         >
       </footer> -->
     </form>
+
+    <!-- 가게정보확인페이지 -->
+    <header>
+      <p>확인하기</p>
+    </header>
+    <section>
+      <article class="checkBox">
+        <p class="subTitle">기본정보</p>
+        <div class="subContentBox">
+          <div class="contentTitle">
+            <p>가게명</p>
+            <p>업장주소</p>
+          </div>
+          <div class="content">
+            <p>스타벅스</p>
+            <p>해운대구 좌동로12</p>
+          </div>
+        </div>
+      </article>
+      <article class="checkBox">
+        <p class="subTitle">사업자 정보</p>
+        <div class="subContentBox">
+          <div class="contentTitle" style="margin-right: 35px">
+            <p>사업자 등록증의 상호</p>
+            <p>사업자 등록증의 대표자</p>
+            <p>사업자 등록번호</p>
+          </div>
+          <div class="content">
+            <p>스타벅스</p>
+            <p>사용자</p>
+            <p>123-4567-8900</p>
+          </div>
+        </div>
+      </article>
+      <article class="checkBox">
+        <p class="subTitle">영업시간 설정</p>
+        <div class="subContentBox">
+          <div class="contentTitle">
+            <p>영업시간</p>
+          </div>
+          <div class="content">
+            <div class="checkTimeBox">
+              <span>9:00 PM</span>
+              <span>~</span>
+              <span>20:00 AM </span>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="checkBox">
+        <p class="subTitle">전화번호</p>
+        <div class="subContentBox">
+          <div class="contentTitle">
+            <p>업주전화</p>
+            <p>가게전화</p>
+          </div>
+          <div class="content">
+            <p>010-1234-5678</p>
+            <p>050-2004-1009</p>
+          </div>
+        </div>
+      </article>
+      <article class="checkBox">
+        <p class="subTitle">카테고리 / 편의시설</p>
+        <div class="subContentBox">
+          <div class="contentTitle">
+            <p>카테고리</p>
+            <p>편의시설</p>
+          </div>
+          <div class="content">
+            <p>카페</p>
+            <button>클릭해서보기</button>
+          </div>
+        </div>
+      </article>
+    </section>
+    <!-- <footer></footer> -->
   </div>
 </template>
 
 <script>
-export default {};
+import InformationCard from "@/components/RegisterStore/InformationCard.vue";
+
+export default {
+  components: {
+    InformationCard,
+  },
+};
 </script>
 
 <style scoped>
@@ -348,7 +412,9 @@ a {
 
 section {
   margin-top: 120px;
-  margin-bottom: 110px;
+  margin-bottom: 120px;
+
+  overflow: hidden;
 }
 
 header {
@@ -356,7 +422,7 @@ header {
   position: fixed;
 
   top: 0;
-  left: 38%;
+  left: 39%;
   background-color: #fff;
 
   width: 414px;
@@ -369,7 +435,7 @@ footer {
   position: fixed;
 
   bottom: 0;
-  left: 38%;
+  left: 39%;
 
   background-color: #fff;
 }
@@ -384,129 +450,6 @@ header p {
   font-weight: bold;
   font-size: 25px;
   letter-spacing: -0.3px;
-}
-
-.storeMain {
-  box-sizing: border-box;
-  padding: 0px 20px;
-}
-
-.information {
-  height: 330px;
-  margin-bottom: 69px;
-}
-
-.informationFont,
-.doubleCheckFont {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 22px;
-}
-
-.informationFont {
-  margin-left: 15px;
-  margin-bottom: 40px;
-  margin-top: 50px;
-}
-
-.informationFont::before,
-.doubleCheckFont::before {
-  content: "";
-  background-image: url("../assets/img/Rectangle.png");
-  background-size: 20px 20px;
-  width: 20px;
-  height: 20px;
-  display: inline-block;
-
-  margin-right: 9px;
-  transform: translateY(8%);
-}
-
-.ownerInformation {
-  width: 374px;
-  height: 120px;
-
-  margin-bottom: 22px;
-  border-radius: 15px;
-  box-shadow: 0px 0px 19px rgba(0, 0, 0, 0.1);
-}
-
-.storeInformation {
-  width: 374px;
-  height: 120px;
-
-  border-radius: 15px;
-  box-shadow: 0px 0px 19px rgba(0, 0, 0, 0.1);
-}
-
-.MainCheckBox,
-.uncheckBox {
-  float: left;
-  width: 33px;
-  height: 120px;
-
-  border-radius: 15px 0px 0px 15px;
-}
-
-.MainCheckBox {
-  background: #c4c4c4;
-}
-
-.uncheckBox {
-  background: #ffffff;
-  border: 1px solid #fff;
-  border-right: none;
-  box-sizing: border-box;
-}
-
-.checkImg,
-.uncheckImg {
-  position: relative;
-  left: 5px;
-  right: 4px;
-  top: 14px;
-}
-
-.informationBox {
-  float: left;
-
-  padding: 0px 14px;
-
-  width: 338px;
-  height: 120px;
-
-  background: #ffffff;
-  border: 1px solid #fff;
-  box-sizing: border-box;
-  border-radius: 0px 15px 15px 0px;
-  border-left: none;
-}
-
-.boxTitle {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
-  letter-spacing: -0.3px;
-
-  margin-top: 16px;
-}
-
-.boxContent {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 300;
-  font-size: 14px;
-  letter-spacing: 0.7px;
-
-  color: #7e7e7e;
-
-  margin-top: 16px;
-}
-
-.information {
-  height: 330px;
 }
 
 .doubleCheck {
@@ -578,6 +521,52 @@ header p {
 
   color: #898989;
 }
+
+.storeMain {
+  box-sizing: border-box;
+  padding: 0px 20px;
+}
+
+.information {
+  height: 330px;
+  margin-bottom: 69px;
+}
+
+.informationFont,
+.doubleCheckFont {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 22px;
+}
+
+.informationFont {
+  margin-left: 15px;
+  margin-bottom: 40px;
+  margin-top: 50px;
+}
+
+.informationFont::before,
+.doubleCheckFont::before {
+  content: "";
+  background-image: url("../assets/img/Rectangle.png");
+  background-size: 20px 20px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+
+  margin-right: 9px;
+  transform: translateY(8%);
+}
+
+.storeInformation {
+  width: 374px;
+  height: 120px;
+
+  border-radius: 15px;
+  box-shadow: 0px 0px 19px rgba(0, 0, 0, 0.1);
+}
+
 /* 사업자등록페이지 */
 .progressBox {
   margin: 41px 20px 3px 241px;
@@ -730,6 +719,7 @@ footer a {
   color: #ffffff;
 }
 
+/* 가게정보페이지-4 CSS */
 .categoryList {
   display: flex;
   justify-content: space-between;
