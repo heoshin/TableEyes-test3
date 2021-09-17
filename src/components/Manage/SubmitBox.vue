@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 
 export default {
   props: {
@@ -37,12 +37,16 @@ export default {
   methods: {
     submit() {
       console.log("submit!");
-      if (this.type == "get") {
-        let url = "http://koldin.myddns.me:4004/" + this.path;
-        console.log("request get: " + url);
-        this.get(url);
+      let url = "http://koldin.myddns.me:4004/" + this.path;
+
+      if (this.type == "post") {
+        console.log("request post: " + url);
+        this.post(url);
+      } else {
+        console.log(`request ${this.type}: ` + url);
+        this.reqAjax(url);
       }
-      // let url = "http://koldin.myddns.me:4004/" + this.path;
+
       // let config = {
       //   headers: {
       //     "Content-Type": "application/json",
@@ -57,29 +61,22 @@ export default {
       //     console.log(res);
       //   });
     },
-    // submitAjax() {
-    //   let url = "http://koldin.myddns.me:4004/" + this.path;
-    //   let config = {
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //   };
-    //   axios
-    //     .post(url, this.submitData, config)
-    //     .then((res) => {
-    //       console.log(res);
-    //     })
-    //     .then((res) => {
-    //       console.log(res);
-    //     });
-    // },
-    get(url) {
+    reqAjax(url) {
       $.ajax({
         url: url,
-        type: "get",
+        type: this.type,
         success: (res) => {
           console.log(res);
-          this.stores = res;
+        },
+      });
+    },
+    post(url) {
+      $.ajax({
+        url: url,
+        type: "post",
+        data: this.submitData,
+        success: (res) => {
+          console.log(res);
         },
       });
     },
