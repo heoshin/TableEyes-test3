@@ -145,8 +145,7 @@ export default {
   margin: 0;
 }
 .map {
-  width: inherit;
-  height: 300px;
+  width: inherit;  height: 300px;
   margin: 0 auto;
   background: lightgray;
 }
@@ -157,7 +156,6 @@ export default {
   margin-top: 10px;
 }
 .card {
-  margin-top: 10px;
-  width: 600px;
+  margin-top: 10px;  width: inherit;
 }
 </style>
