@@ -13,7 +13,7 @@
         />
         <InformationCard
           title="매장 정보"
-          description="사업자 등록증의 상표, 사업자 등록증의 대표자 입력, 사업자 등록번호"
+          description="기본정보, 영업시간,전화번호,카테고리/편의시설, 죄석"
         />
       </article>
       <InformationCheck />
