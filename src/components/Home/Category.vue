@@ -1,54 +1,49 @@
 <template>
   <article class="choice">
     <div>
-      <a href="#">
+      <a href="#" v-for="(item, i) in categorys.names" :key="i">
         <span></span>
-        <p>전체</p>
-      </a>
-      <a href="#">
-        <span></span>
-        <p>영화</p>
-      </a>
-      <a href="#">
-        <span></span>
-        <p>노래방</p>
-      </a>
-      <a href="#">
-        <span></span>
-        <p>스포츠</p>
-      </a>
-      <a href="#">
-        <span></span>
-        <p>pc방</p>
-      </a>
-      <a href="#">
-        <span></span>
-        <p>보드게임</p>
+        <p>{{ item }}</p>
       </a>
     </div>
   </article>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      categorys: {
+        names: ["전체", "영화", "노래방", "스포츠", "pc방", "보드게임"],
+      },
+    };
+  },
+};
 </script>
 
 <style scoped>
-* {margin: 0; padding: 0;}
-ul {list-style: none;}
-a {text-decoration: none;}
+* {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
 
 .choice {
   width: 414px;
-  height: 289px;
+  height: inherit;
   margin-bottom: 10px;
-
   box-sizing: border-box;
   padding: 0px 15px;
 }
 .choice div {
   width: 414px;
-  height: 150px;
+  height: inherit;
+
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -76,6 +71,4 @@ a {text-decoration: none;}
 .choice a:hover span {
   background-color: #6a6a6a;
 }
-
-
 </style>
