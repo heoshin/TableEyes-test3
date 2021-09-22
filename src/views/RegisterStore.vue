@@ -1,56 +1,27 @@
 <template>
   <div>
     <!-- <header>
-    <p>테이블 아이즈</p>
-  </header> -->
+      <p>테이블 아이즈</p>
+    </header> -->
 
     <section class="storeMain">
       <article class="information">
         <p class="informationFont">정보를 입력해주세요</p>
-        <div class="ownerInformation">
-          <div class="checkBox">
-            <img src="../assets/img/check.png" alt="" class="checkImg" />
-          </div>
-          <a href="#">
-            <div class="informationBox">
-              <p class="boxTitle">사업자 정보</p>
-              <p class="boxContent">
-                사업자 등록증의 상표, 사업자 등록증의 대표자 입력, 사업자
-                등록번호
-              </p>
-            </div>
-          </a>
-        </div>
-
-        <div class="storeInformation">
-          <div class="uncheckBox">
-            <img src="../assets/img/uncheck.png" alt="" class="uncheckImg" />
-          </div>
-          <a href="">
-            <div class="informationBox">
-              <p class="boxTitle">가게 정보</p>
-              <p class="boxContent">
-                사업자 등록증의 상표, 사업자 등록증의 대표자 입력, 사업자
-                등록번호
-              </p>
-            </div>
-          </a>
-        </div>
+        <InformationCard
+          title="사업자 정보"
+          description="사업자 등록증의 상표, 사업자 등록증의 대표자 입력, 사업자 등록번호"
+        />
+        <InformationCard
+          title="매장 정보"
+          description="사업자 등록증의 상표, 사업자 등록증의 대표자 입력, 사업자 등록번호"
+        />
       </article>
-      <article class="doubleCheck">
-        <div class="doubleCheckBox">
-          <p class="doubleCheckFont">마지막으로</p>
-          <a href="#">
-            <button class="checkButton">
-              <span class="ButtonFont">+확인하기</span>
-            </button>
-          </a>
-        </div>
-      </article>
+      <InformationCheck />
       <!-- <article class="openStoreButton">
       <a href="#"><button class="openButton">입점하기</button></a>
     </article> -->
     </section>
+
     <!-- 사업자 정보 페이지 -->
     <div class="BusinessInformationPage">
       <!-- <header></header> -->
@@ -59,26 +30,18 @@
           <div class="titleBox">
             <p class="title">사업자 정보를 등록해주세요</p>
           </div>
-          <article class="boxSize">
-            <label class="subTitle">사업자 등록증의 상호</label>
-            <input type="text" class="input" required />
-            <p class="explanation">사업자 등록증의 상호를 입력해주세요</p>
-          </article>
-          <article class="boxSize">
-            <label class="subTitle">사업자 등록증의 대표자</label>
-            <input type="text" class="input" required />
-            <p class="explanation">사업자 등록증의 대표자를 입력해주세요</p>
-          </article>
-          <article class="boxSize">
-            <label class="subTitle">사업자 등록번호</label>
-            <input
-              type="text"
-              class="input"
-              placeholder="-없이 입력해주세요"
-              required
-            />
-            <p class="explanation">사업자 등록번호를 입력해주세요</p>
-          </article>
+          <InputText
+            title="사업자 등록증의 상호"
+            description="사업자 등록증의 상호를 입력해주세요"
+          />
+          <InputText
+            title="사업자 등록증의 대표자"
+            description="사업자 등록증의 대표자를 입력해주세요"
+          />
+          <InputNumber
+            title="사업자 등록번호"
+            description="사업자 등록번호를 입력해주세요"
+          />
         </section>
 
         <!-- <footer>
@@ -103,18 +66,14 @@
           <div class="titleBox">
             <p class="title">기본정보를 입력해주세요</p>
           </div>
-          <article class="boxSize">
-            <label class="subTitle">가게명</label>
-            <input type="text" class="input" required />
-            <p class="explanation">
-              고객들에게 보여질 가게 이름을 입력해주세요
-            </p>
-          </article>
-          <article class="boxSize">
-            <label class="subTitle">업장주소</label>
-            <input type="text" class="input" required />
-            <p class="explanation">가게의 위치를 입력해주세요</p>
-          </article>
+          <InputText
+            title="가게명"
+            description="고객들에게 보여질 가게 이름을 입력해주세요"
+          />
+          <InputText
+            title="업장주소"
+            description="가게의 위치를 입력해주세요"
+          />
         </section>
 
         <footer>
@@ -142,26 +101,11 @@
         <div class="titleBox">
           <p class="title">전화번호를 입력해주세요</p>
         </div>
-        <article class="boxSize">
-          <label class="subTitle">업주전화</label>
-          <input
-            type="text"
-            class="input"
-            placeholder="-없이 입력해주세요"
-            required
-          />
-          <p class="explanation">업주전화를 입력해주세요</p>
-        </article>
-        <article class="boxSize">
-          <label class="subTitle">가게전화</label>
-          <input
-            type="text"
-            class="input"
-            placeholder="-없이 입력해주세요"
-            required
-          />
-          <p class="explanation">가게의 전화를 입력해주세요</p>
-        </article>
+        <InputNumber title="업주전화" description="업주전화를 입력해주세요" />
+        <InputNumber
+          title="가게전화"
+          description="가게의 전화를 입력해주세요"
+        />
       </section>
 
       <!-- <footer>
@@ -172,11 +116,133 @@
       </a>
     </footer> -->
     </form>
+
+    <!-- 가게정보페이지-4 -->
+    <!-- <header>
+      <div class="progressBox">
+        <div class="progress-chart">
+          <div class="progress-bar" style="width: 100%"></div>
+        </div>
+        <div class="progressTextBox">
+          <span>4</span><span class="progressFont">/4</span>
+        </div>
+      </div>
+    </header> -->
+    <form>
+      <section>
+        <div class="titleBox">
+          <p class="title">카테고리 / 편의시설 설정</p>
+        </div>
+        <Category />
+        <Amenities />
+      </section>
+
+      <!-- <footer>
+        <a href="./newStore-2.html" type="submit"
+          ><button class="next" onclick="location.href='./newStore-2.html'">
+            다음으로
+          </button></a
+        >
+      </footer> -->
+    </form>
+
+    <!-- 가게정보확인페이지 -->
+    <!-- <header>
+      <p>확인하기</p>
+    </header> -->
+    <section>
+      <article class="checkBox">
+        <p class="subTitle">기본정보</p>
+        <div class="subContentBox">
+          <div class="contentTitle">
+            <p>가게명</p>
+            <p>업장주소</p>
+          </div>
+          <div class="content">
+            <p>스타벅스</p>
+            <p>해운대구 좌동로12</p>
+          </div>
+        </div>
+      </article>
+      <article class="checkBox">
+        <p class="subTitle">사업자 정보</p>
+        <div class="subContentBox">
+          <div class="contentTitle" style="margin-right: 35px">
+            <p>사업자 등록증의 상호</p>
+            <p>사업자 등록증의 대표자</p>
+            <p>사업자 등록번호</p>
+          </div>
+          <div class="content">
+            <p>스타벅스</p>
+            <p>사용자</p>
+            <p>123-4567-8900</p>
+          </div>
+        </div>
+      </article>
+      <article class="checkBox">
+        <p class="subTitle">영업시간 설정</p>
+        <div class="subContentBox">
+          <div class="contentTitle">
+            <p>영업시간</p>
+          </div>
+          <div class="content">
+            <div class="checkTimeBox">
+              <span>9:00 PM</span>
+              <span>~</span>
+              <span>20:00 AM </span>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="checkBox">
+        <p class="subTitle">전화번호</p>
+        <div class="subContentBox">
+          <div class="contentTitle">
+            <p>업주전화</p>
+            <p>가게전화</p>
+          </div>
+          <div class="content">
+            <p>010-1234-5678</p>
+            <p>050-2004-1009</p>
+          </div>
+        </div>
+      </article>
+      <article class="checkBox">
+        <p class="subTitle">카테고리 / 편의시설</p>
+        <div class="subContentBox">
+          <div class="contentTitle">
+            <p>카테고리</p>
+            <p>편의시설</p>
+          </div>
+          <div class="content">
+            <p>카페</p>
+            <button>클릭해서보기</button>
+          </div>
+        </div>
+      </article>
+    </section>
+    <!-- <footer></footer> -->
   </div>
 </template>
 
 <script>
-export default {};
+import InformationCard from "@/components/RegisterStore/InformationCard.vue";
+import InformationCheck from "@/components/RegisterStore/InformationCheck.vue";
+import InputText from "@/components/RegisterStore/InputText.vue";
+import InputNumber from "@/components/RegisterStore/InputNumber.vue";
+import Category from "@/components/RegisterStore/Category.vue";
+import Amenities from "@/components/RegisterStore/Amenities.vue";
+
+export default {
+  components: {
+    InformationCard,
+    InformationCheck,
+    InputText,
+    InputNumber,
+    Category,
+    Amenities,
+  },
+};
 </script>
 
 <style scoped>
@@ -195,7 +261,9 @@ a {
 
 section {
   margin-top: 120px;
-  margin-bottom: 110px;
+  margin-bottom: 200px;
+
+  overflow: hidden;
 }
 
 header {
@@ -203,7 +271,7 @@ header {
   position: fixed;
 
   top: 0;
-  left: 0;
+  left: 753px;
   background-color: #fff;
 
   width: 414px;
@@ -216,7 +284,7 @@ footer {
   position: fixed;
 
   bottom: 0;
-  left: 0;
+  left: 753px;
 
   background-color: #fff;
 }
@@ -231,16 +299,6 @@ header p {
   font-weight: bold;
   font-size: 25px;
   letter-spacing: -0.3px;
-}
-
-.storeMain {
-  box-sizing: border-box;
-  padding: 0px 20px;
-}
-
-.information {
-  height: 330px;
-  margin-bottom: 69px;
 }
 
 .informationFont,
@@ -270,137 +328,6 @@ header p {
   transform: translateY(8%);
 }
 
-.ownerInformation {
-  width: 374px;
-  height: 120px;
-
-  margin-bottom: 22px;
-  border-radius: 15px;
-  box-shadow: 0px 0px 19px rgba(0, 0, 0, 0.1);
-}
-
-.storeInformation {
-  width: 374px;
-  height: 120px;
-
-  border-radius: 15px;
-  box-shadow: 0px 0px 19px rgba(0, 0, 0, 0.1);
-}
-
-.checkBox,
-.uncheckBox {
-  float: left;
-  width: 33px;
-  height: 120px;
-
-  border-radius: 15px 0px 0px 15px;
-}
-
-.checkBox {
-  background: #c4c4c4;
-}
-
-.uncheckBox {
-  background: #ffffff;
-  border: 1px solid #fff;
-  border-right: none;
-  box-sizing: border-box;
-}
-
-.checkImg,
-.uncheckImg {
-  position: relative;
-  left: 5px;
-  right: 4px;
-  top: 14px;
-}
-
-.informationBox {
-  float: left;
-
-  padding: 0px 14px;
-
-  width: 338px;
-  height: 120px;
-
-  background: #ffffff;
-  border: 1px solid #fff;
-  box-sizing: border-box;
-  border-radius: 0px 15px 15px 0px;
-  border-left: none;
-}
-
-.boxTitle {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
-  letter-spacing: -0.3px;
-
-  margin-top: 16px;
-}
-
-.boxContent {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 300;
-  font-size: 14px;
-  letter-spacing: 0.7px;
-
-  color: #7e7e7e;
-
-  margin-top: 16px;
-}
-
-.information {
-  height: 330px;
-}
-
-.doubleCheck {
-  height: 177px;
-  margin-bottom: 55px;
-}
-
-.doubleCheckBox {
-  width: 374px;
-  height: 177px;
-
-  background: #ffffff;
-  box-sizing: border-box;
-  border: 1px solid #ffffff;
-  box-shadow: 0px 0px 19px rgba(0, 0, 0, 0.1);
-  border-radius: 15px;
-
-  padding: 0px 25px;
-}
-
-.doubleCheckFont {
-  margin-top: 22px;
-  margin-left: -7px;
-}
-
-.checkButton {
-  width: 324px;
-  height: 73px;
-
-  border: 1px solid #e4e4e4;
-  box-sizing: border-box;
-  border-radius: 10px;
-
-  background-color: #ffffff;
-  margin-top: 30px;
-}
-
-.ButtonFont {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  letter-spacing: -0.3px;
-
-  color: #1400ff;
-}
-
 .openStoreButton {
   width: 374px;
   height: 70px;
@@ -425,6 +352,12 @@ header p {
 
   color: #898989;
 }
+
+.storeMain {
+  box-sizing: border-box;
+  padding: 0px 20px;
+}
+
 /* 사업자등록페이지 */
 .progressBox {
   margin: 41px 20px 3px 241px;
@@ -483,65 +416,7 @@ header p {
 
   margin-left: 20px;
 }
-/* 항목 컨테이너 */
-.boxSize {
-  width: 414px;
-  height: 180px;
 
-  box-sizing: border-box;
-
-  padding: 0px 20px;
-  border-bottom: 1px solid #e3e3e3;
-}
-/* 각 항목 제목 */
-.subTitle {
-  display: inline-block;
-
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 22px;
-  letter-spacing: -0.3px;
-
-  margin-top: 23px;
-}
-/* 선택됐을 때 테두리 보라색 */
-input:focus {
-  outline: none;
-  border: 1px solid #f700ff;
-  border-radius: 10px;
-}
-
-.input {
-  width: 374px;
-  height: 58px;
-
-  border: 1px solid #c2c2c2;
-  box-sizing: border-box;
-  border-radius: 10px;
-
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  letter-spacing: -0.3px;
-
-  padding-left: 19px;
-  margin-top: 14px;
-}
-
-.explanation {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-
-  letter-spacing: -1px;
-
-  color: #696969;
-
-  margin-top: 10px;
-}
 /* 버튼 */
 footer a {
   display: inline-block;
@@ -573,5 +448,90 @@ footer a {
   letter-spacing: 4.7px;
 
   color: #ffffff;
+}
+
+/* 가게정보확인페이지 */
+.checkBox {
+    width: 414px;
+
+    box-sizing: border-box;
+
+    padding-left: 20px;
+    padding-bottom: 26px;
+
+    border-bottom: 1px solid #E3E3E3;;
+}
+
+.subTitle {
+    display:block;
+    
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: -0.3px;
+    
+    margin-top: 23px;
+}
+
+.subContentBox {
+    margin-top: 14px;
+    border-radius: 3px;
+}
+
+.contentTitle {
+    float: left;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    
+    letter-spacing: -0.3px;
+    
+    color: #6F7198;
+    
+    margin-right: 22px;
+}
+
+.content {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    
+    letter-spacing: -0.3px;
+}
+
+/* 클릭해서보기버튼 */
+.content button {
+    width: 264px;
+    height: 18px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    letter-spacing: -0.3px;
+    
+    color: #CBCBCB;
+
+    background: #FFFFFF;
+    border: 1px solid #CBCBCB;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.content button:hover {
+    color: #ffffff;
+    background: #ececec;
+}
+
+/* 영업시간 정렬 */
+
+.checkBox .subContentBox .content .checkTimeBox {
+    width: 194px;
+    
+    display: flex;
+    justify-content: space-between;
 }
 </style>
