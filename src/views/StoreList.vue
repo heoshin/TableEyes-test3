@@ -2,7 +2,7 @@
   <div>
     <div class="map"></div>
     <SortSelector id="sort-selector" />
-    <Card class="card" v-for="store in stores" :key="store" :store="store" />
+    <Card class="card" v-for="(i, store) in stores" :key="i" :store="store" />
   </div>
 </template>
 
@@ -117,12 +117,14 @@ export default {
     },
   },
   mounted() {
-    // axios
-    //   .get("http://koldin.myddns.me:4004/store/type/id/category")
-    //   .then((response) => {
-    //     console.log(response);
-    //     this.stores = response.data;
-    //   });
+    {
+      axios
+        .get("http://koldin.myddns.me:4004/store/type/id/category")
+        .then((response) => {
+          console.log(response);
+          this.stores = response.data;
+        });
+    }
 
     $.ajax({
       url: "http://koldin.myddns.me:4004/store/type/id/category",
@@ -158,6 +160,6 @@ export default {
 }
 .card {
   margin-top: 10px;
-  width: 600px;
+  width: inherit;
 }
 </style>

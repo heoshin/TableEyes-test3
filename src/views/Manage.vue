@@ -2,10 +2,20 @@
   <div>
     <h1>Get</h1>
     <SubmitBox type="get" />
-    <h1>SignUp</h1>
-    <SubmitBox :submitKeys="signUpKeys" path="sign-up" />
+
+    <h1>Delete</h1>
+    <SubmitBox type="delete" path="store/" />
+
+    <h1>AddStore</h1>
+    <SubmitBox :submitKeys="addStoreKeys" type="post" path="store" />
+
     <h1>Login</h1>
-    <SubmitBox :submitKeys="loginKeys" path="login" />
+    <SubmitBox :submitKeys="loginKeys" type="post" path="login" />
+
+    <h1>SignUp</h1>
+    <SubmitBox :submitKeys="signUpKeys" type="post" path="sign-up" />
+
+    <div style="height: 40px"></div>
   </div>
 </template>
 
@@ -28,6 +38,22 @@ export default {
         "hometown",
       ],
       loginKeys: ["id", "password"],
+      addStoreKeys: [
+        "name",
+        "description",
+        "maxPersonnel",
+        "lat",
+        "lon",
+        "category",
+        "logo",
+        "openTime",
+        "closeTime",
+        "holiday",
+        "infoDescription",
+        "conFacility",
+        "seat",
+        "number",
+      ],
     };
   },
   methods: {

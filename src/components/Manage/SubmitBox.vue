@@ -2,18 +2,25 @@
   <v-card ref="form">
     {{ submitData }}
     <v-card-text>
+      <v-textarea
+        v-model="submitDataByStr"
+        @input="OnChangeSubmitDataByStr"
+        label="raw"
+        required
+      ></v-textarea>
       <v-text-field v-model="path" label="path" required></v-text-field>
       <v-text-field
         v-for="key in submitKeys"
         :key="key"
         v-model="submitData[key]"
+        @input="OnChangeSubmitData"
         :label="key"
         required
       ></v-text-field>
     </v-card-text>
     <v-divider class="mt-12"></v-divider>
     <v-card-actions>
-      <v-btn text @click="save"> save </v-btn>
+      <v-btn text @click="copyToClipboard"> copy </v-btn>
       <v-spacer></v-spacer>
       <v-btn text @click="submit"> Submit </v-btn>
     </v-card-actions>
@@ -32,17 +39,22 @@ export default {
   data() {
     return {
       submitData: {},
+      submitDataByStr: "",
     };
   },
   methods: {
     submit() {
       console.log("submit!");
-      if (this.type == "get") {
-        let url = "http://koldin.myddns.me:4004/" + this.path;
-        console.log("request get: " + url);
-        this.get(url);
+      let url = "http://koldin.myddns.me:4004/" + this.path;
+
+      if (this.type == "post") {
+        console.log("request post: " + url);
+        this.reqAjaxPost(url);
+      } else {
+        console.log(`request ${this.type}: ` + url);
+        this.reqAjax(url);
       }
-      // let url = "http://koldin.myddns.me:4004/" + this.path;
+
       // let config = {
       //   headers: {
       //     "Content-Type": "application/json",
@@ -57,34 +69,51 @@ export default {
       //     console.log(res);
       //   });
     },
-    // submitAjax() {
-    //   let url = "http://koldin.myddns.me:4004/" + this.path;
-    //   let config = {
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //   };
-    //   axios
-    //     .post(url, this.submitData, config)
-    //     .then((res) => {
-    //       console.log(res);
-    //     })
-    //     .then((res) => {
-    //       console.log(res);
-    //     });
-    // },
-    get(url) {
+    reqAjax(url) {
       $.ajax({
         url: url,
-        type: "get",
+        type: this.type,
+        Headers: {
+          withCredentials: true,
+        },
         success: (res) => {
           console.log(res);
-          this.stores = res;
+        },
+        error: (res) => {
+          console.log(res);
         },
       });
     },
-    save() {
-      console.log("save");
+    reqAjaxPost(url) {
+      $.ajax({
+        url: url,
+        type: "post",
+        xhrFields: {
+          withCredentials: true,
+        },
+        data: this.submitData,
+        success: (res) => {
+          console.log(res);
+        },
+        error: (res) => {
+          console.log(res);
+        },
+      });
+    },
+    
+    OnChangeSubmitData() {
+      let newSubmitDataByStr = JSON.stringify(this.submitData);
+      this.submitDataByStr = newSubmitDataByStr;
+    },
+    OnChangeSubmitDataByStr() {
+      let newSubmitData = JSON.parse(this.submitDataByStr);
+      this.submitData = newSubmitData;
+    },
+    copyToClipboard() {
+      let newSubmitData = JSON.stringify(this.submitData);
+      console.log(newSubmitData);
+      this.$copyText(newSubmitData);
+      console.log("copy");
     },
   },
 };

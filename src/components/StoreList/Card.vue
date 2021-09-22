@@ -5,8 +5,8 @@
     </div>
     <div class="card-info">
       <div id="info-title">{{ store.name }}</div>
-      <span id="info-star" v-for="i in store.star" :key="i">★</span>
-      <span id="info-star" v-for="i in 5 - store.star" :key="i">☆</span>
+      <!-- <span id="info-star" v-for="i in store.star" :key="i">★</span>
+      <span id="info-star" v-for="i in 5 - store.star" :key="i">☆</span> -->
       <div id="info-time">
         <!-- <img src="@/assets/time.png" />{{ store.openTime }}~{{ store.closeTime }} -->
       </div>
@@ -43,18 +43,17 @@ export default {
 <style scoped>
 .card {
   margin: 0 auto;
-  width: 100%;
-  height: 150px;
+  width: 100%; height: 100px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
 }
 .card-thumbnail {
   float: left;
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   background-color: #f4e2f6;
   border-radius: 20px;
-  line-height: 150px;
+  line-height: 100px;
   text-align: center;
 }
 .card-thumbnail img {
@@ -64,20 +63,20 @@ export default {
   border-radius: 50%;
   border: solid 5px white;
 }
+
 .card-info {
   position: relative;
   float: left;
-  width: calc(100% - 150px);
-  height: 100%;
+  width: calc(100% - 150px);  height: 100%;
   padding: 15px;
   box-sizing: border-box;
 }
 #info-title {
-  font-size: 25px;
+  font-size: 18px;
   font-weight: 900;
 }
 #info-star {
-  font-size: 25px;
+  font-size: 18px;
   color: #ffc000;
 }
 #info-time {
@@ -94,7 +93,7 @@ export default {
   position: absolute;
   right: 15px;
   bottom: 70px;
-  font-size: 20px;
+  font-size: 16px;
 }
 #info-distance img {
   height: 30px;
