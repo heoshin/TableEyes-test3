@@ -4,8 +4,10 @@ import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify'
 import VueClipboard from 'vue-clipboard2'
+import VueCookies from "vue-cookies";
 
 Vue.use(VueClipboard)
+Vue.use(VueCookies)
 
 new Vue({
   router,

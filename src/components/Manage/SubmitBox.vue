@@ -49,25 +49,11 @@ export default {
 
       if (this.type == "post") {
         console.log("request post: " + url);
-        this.reqAjaxPost(url);
+        this.reqAxiosPost(url);
       } else {
         console.log(`request ${this.type}: ` + url);
         this.reqAjax(url);
       }
-
-      // let config = {
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      // };
-      // axios
-      //   .post(url, this.submitData, config)
-      //   .then((res) => {
-      //     console.log(res);
-      //   })
-      //   .then((res) => {
-      //     console.log(res);
-      //   });
     },
     reqAjax(url) {
       $.ajax({
@@ -100,7 +86,24 @@ export default {
         },
       });
     },
-    
+
+    reqAxiosPost(url) {
+      let config = {
+        config: {
+          "Content-Type": "application/json",
+          "withCredentials": true,
+        },
+      };
+      axios
+        .post(url, this.submitData, config)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((res) => {
+          console.log(res);
+        });
+    },
+
     OnChangeSubmitData() {
       let newSubmitDataByStr = JSON.stringify(this.submitData);
       this.submitDataByStr = newSubmitDataByStr;

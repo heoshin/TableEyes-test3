@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="card-thumbnail">
-      <img :src="store.logo" />
+      <!-- <img :src="store.logo" /> -->
     </div>
     <div class="card-info">
       <div id="info-title">{{ store.name }}</div>
@@ -27,9 +27,10 @@ export default {
   },
   methods: {
     getCountSrc() {
-      let curCountSrc = require("@/assets/count_" +
-        (parseInt((this.store.nowPerson / this.store.maxPerson) * 3) + 1) +
-        ".png");
+      // let curCountSrc = require("@/assets/count_" +
+      //   (parseInt((this.store.nowPerson / this.store.maxPerson) * 3) + 1) +
+      //   ".png");
+      let curCountSrc = 3;
       return curCountSrc;
     },
     
