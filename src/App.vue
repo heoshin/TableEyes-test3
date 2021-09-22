@@ -24,7 +24,9 @@ export default {
   },
   methods: {
   },
-  mounted() {},
+  mounted() {
+    this.$store.dispatch("loadAllStoresFromServer")
+  },
 };
 </script>
 
