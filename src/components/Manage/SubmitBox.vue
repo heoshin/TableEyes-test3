@@ -103,17 +103,14 @@ export default {
         });
     },
     reqAxiosPost(url) {
-
       let config = {
         headers: {
           "content-Type": "application/json",
-          Accept: "/",
-          "Cache-Control": "no-cache",
-          Cookie: document.cookie,
+          "Access-Control-Allow-Credentials": true,
+          "withCredentials": true,
+          "Accept": "/",
         },
-        credentials: "same-origin",
       };
-      axios.defaults.withCredentials = true;
 
       axios
         .post(url, this.submitData, config)
