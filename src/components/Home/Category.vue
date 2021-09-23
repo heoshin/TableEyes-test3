@@ -1,8 +1,11 @@
 <template>
   <article class="choice">
     <div>
-      <a href="#" v-for="(item, i) in categorys.names" :key="i">
-        <span :style="getBG(i)"></span>
+      <a href="#" v-for="(item, i) in categorys.displayNames" :key="i">
+        <span>
+          <img :src="getCategoryImg(i)">
+        </span>
+
         <p>{{ item }}</p>
       </a>
     </div>
@@ -14,18 +17,17 @@ export default {
   data() {
     return {
       categorys: {
-        imgName: ["all", "random", "cafe", "game", "sing", "sport"],
-        names: ["전체", "랜덤", "카페", "게임", "노래방", "스포츠"],
+        names: ["all", "random", "cafe", "game", "sing", "sport"],
+        displayNames: ["전체", "랜덤", "카페", "게임", "노래방", "스포츠"],
       },
     };
   },
   methods: {
-    getBG(idx) {
-      let name = this.categorys.imgName[idx]
-
-      return { backgroundImage: `url(../../assets/img/category/${name}-B.png)`}
-    },
-  }
+    getCategoryImg(idx) {
+      let name = this.categorys.names[idx];
+      return require(`@/assets/img/category/${name}-B.png`)
+    }
+  },
 };
 </script>
 
@@ -49,7 +51,6 @@ a {
   padding: 0px 15px;
 }
 .choice div {
-  width: 414px;
   height: inherit;
 
   display: flex;
@@ -59,18 +60,18 @@ a {
 }
 .choice div a {
   color: black;
-  margin-right: 30px;
-  margin-top: 20px;
+  margin: 10px 10px;
 }
 .choice div a span {
   display: block;
-  width: 90px;
-  height: 90px;
+  width: 90px;  height: 90px;
+  line-height: 90px;
   background-color: #c4c4c4;
   border-radius: 50%;
   text-align: center;
-  font-size: 15px;
-  font-weight: 400;
+}
+.choice div a span img {
+  vertical-align: middle;
 }
 .choice div a p {
   margin-top: 5px;
