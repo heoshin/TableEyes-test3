@@ -1,13 +1,21 @@
 <template>
-  
+  <div>
+    <CurrentSeatBar />
+    <SeatLayout />
+  </div>
 </template>
 
 <script>
-export default {
+import CurrentSeatBar from "@/components/StorePage/NavSeat/CurrentSeatBar.vue";
+import SeatLayout from "@/components/StorePage/NavSeat/SeatLayout.vue";
 
-}
+export default {
+  components: {
+    CurrentSeatBar,
+    SeatLayout,
+  },
+};
 </script>
 
 <style>
-
 </style>
