@@ -1,7 +1,7 @@
 <template>
   <div class="mainStoreImg">
     <img
-      src="https://www.haeundae.go.kr/upload_data/board_data/BBS_0000050/157915039396198.png"
+      :src="img"
       alt="매장사진"
     />
   </div>
@@ -10,7 +10,7 @@
 <script>
 export default {
   props: {
-    img: String, 
+    img: String,
   },
 };
 </script>

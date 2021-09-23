@@ -3,20 +3,26 @@
     <p class="storeInformation">영업정보</p>
     <div class="storeInformationBox">
       <span class="InformationTitle">영업시간</span>
-      <span class="InformationContent">9:00~10:00</span>
+      <span class="InformationContent">{{businessHours}}</span>
       <span class="InformationTitle">휴무일</span>
-      <span class="InformationContent">-</span>
+      <span class="InformationContent">{{dayOff}}</span>
     </div>
     <p class="storeInformationL">위치</p>
     <div class="storeInformationBox">
-      <span class="InformationTitle">부산 해운대구 좌동로 12</span>
+      <span class="InformationTitle">{{Location}}</span>
       <span href="#" class="copy">복사</span>
     </div>
   </article>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    businessHours: String,
+    dayOff: String,
+    Location: String,
+  },
+};
 </script>
 
 <style scoped>

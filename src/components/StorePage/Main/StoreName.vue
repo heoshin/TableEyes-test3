@@ -1,17 +1,23 @@
 <template>
   <div class="storeName">
-    <p>스타벅스 해운대좌동점</p>
+    <p>{{title}}</p>
     <div class="storeStar">
       <span class="mainStoreStar"><span style="width: 90%"></span></span>
-      <span class="star-1">4.5</span>
+      <span class="star-1">{{star}}</span>
       <span class="star-2">|</span>
-      <span class="distance">210m</span>
+      <span class="distance">{{distance}}m</span>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    title: String,
+    star: Number,
+    distance: Number,
+  },
+}
 </script>
 
 <style scoped>

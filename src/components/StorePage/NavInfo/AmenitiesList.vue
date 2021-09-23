@@ -2,15 +2,20 @@
   <div class="amenitiesList">
     <span class="listImg"
       ><img
-        src="https://t1.daumcdn.net/cfile/tistory/99F09B345C49795004"
+        :src="img"
         alt="주차가능"
     /></span>
-    <span class="name">주차가능</span>
+    <span class="name">{{categoryTitle}}</span>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    img : String,
+    categoryTitle : String,
+  },
+};
 </script>
 
 <style scoped>

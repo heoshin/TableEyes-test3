@@ -4,19 +4,25 @@
       <i>전화</i>
     </a>
     <a href="#" class="B-heart">
-      <i>106</i>
+      <i>{{heart}}</i>
     </a>
     <a href="#" class="B-share">
       <i>공유</i>
     </a>
     <a href="#" class="B-emptyseat">
-      <i>12/35</i>
+      <i>{{filledSeat}}/{{totalSeat}}</i>
     </a>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    heart:Number,
+    filledSeat:Number,
+    totalSeat:Number,
+  },
+};
 </script>
 
 <style scoped>
