@@ -2,7 +2,7 @@
   <article class="choice">
     <div>
       <a href="#" v-for="(item, i) in categorys.names" :key="i">
-        <span></span>
+        <span :style="getBG(i)"></span>
         <p>{{ item }}</p>
       </a>
     </div>
@@ -14,10 +14,18 @@ export default {
   data() {
     return {
       categorys: {
-        names: ["전체", "영화", "노래방", "스포츠", "pc방", "보드게임"],
+        imgName: ["all", "random", "cafe", "game", "sing", "sport"],
+        names: ["전체", "랜덤", "카페", "게임", "노래방", "스포츠"],
       },
     };
   },
+  methods: {
+    getBG(idx) {
+      let name = this.categorys.imgName[idx]
+
+      return { backgroundImage: `url(../../assets/img/category/${name}-B.png)`}
+    },
+  }
 };
 </script>
 
