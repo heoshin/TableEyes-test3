@@ -69,12 +69,19 @@ export default {
 </script>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
 .KimBox {
-  width: 374px;
+  width: 414px;
   height: 59px;
 
   line-height: 59px;
 
+  padding: 0px 20px;
   display: flex;
   justify-content: space-between;
 }

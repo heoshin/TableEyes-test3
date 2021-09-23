@@ -39,7 +39,7 @@ export default {
         this.imgUrl = require("@/assets/img/unheart.png");
         this.isHearted = false;
       } else {
-        this.imgUrl = require("@/assets/img/heart.png");
+        this.imgUrl = require("@/assets/img/하트.png");
         this.isHearted = true;
       }
     },
@@ -124,7 +124,7 @@ a {
   font-size: 12px;
   letter-spacing: -0.3px;
 
-  color: #ff0000;
+  color: #E19111;
 }
 
 .storeStar {
@@ -134,7 +134,7 @@ a {
   font-size: 15px;
   letter-spacing: -0.3px;
 
-  color: #ff47cc;
+  color: #D35400;
 
   margin-right: 13px;
 }
