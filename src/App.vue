@@ -2,6 +2,7 @@
   <div>
     <v-btn @click="$router.push('/registerStore')">registerStore</v-btn>
     <v-btn @click="$router.push('/manage')">manage</v-btn>
+    <v-btn @click="$router.push('/storePage')">storePage</v-btn>
 
     <router-view></router-view>
 

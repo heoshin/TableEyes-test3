@@ -10,7 +10,7 @@ import Home from '@/views/Home.vue'
 import StoreList from '@/views/StoreList.vue'
 import History from '@/views/History.vue'
 import MyPage from '@/views/MyPage.vue'
-// import StorePage from '@/views/StorePage.vue'
+import StorePage from '@/views/StorePage.vue'
 import RegisterStore from '@/views/RegisterStore.vue'
 import Manage from '@/views/Manage.vue'
 
@@ -50,6 +50,10 @@ const routes = [
   {
     path: "/manage",
     component: Manage,
+  },
+  {
+    path: "/storePage",
+    component: StorePage,
   },
 ];
 

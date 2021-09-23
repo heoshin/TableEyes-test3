@@ -44,7 +44,7 @@ export default {
         "maxPersonnel",
         "lat",
         "lon",
-        "category",
+        "mainCategory",
         "logo",
         "openTime",
         "closeTime",
@@ -56,19 +56,10 @@ export default {
       ],
     };
   },
-  methods: {
-    signUp() {
-      console.log(this.userObj);
-      this.clearForm();
-    },
-    clearForm() {
-      (this.userId = null),
-        (this.password = null),
-        (this.name = null),
-        (this.address = null),
-        (this.src = null);
-    },
+  mounted() {
+    this.$cookies.set("test", "12345");
   },
+  methods: {},
 };
 </script>
 

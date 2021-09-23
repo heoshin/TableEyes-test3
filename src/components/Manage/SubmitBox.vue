@@ -40,6 +40,7 @@ export default {
     return {
       submitData: {},
       submitDataByStr: "",
+      token: "",
     };
   },
   methods: {
@@ -52,7 +53,7 @@ export default {
         this.reqAxiosPost(url);
       } else {
         console.log(`request ${this.type}: ` + url);
-        this.reqAjax(url);
+        this.reqAxios(url);
       }
     },
     reqAjax(url) {
@@ -87,11 +88,22 @@ export default {
       });
     },
 
+    reqAxios(url) {
+      axios({
+        method: this.type,
+        url: url,
+      })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((res) => {
+          console.log(res);
+        });
+    },
     reqAxiosPost(url) {
       let config = {
-        config: {
-          "Content-Type": "application/json",
-          "withCredentials": true,
+        headers: {
+          withCredentials: true,
         },
       };
       axios
