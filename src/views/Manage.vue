@@ -1,6 +1,8 @@
 <template>
   <div>
-  <input multiple @change="onInputImage" ref="serveyImage" type="file">
+    <v-file-input show-size label="file"></v-file-input>
+    <v-btn @click="upload" color="primary">Upload</v-btn>
+
     <h1>Get</h1>
     <SubmitBox type="get" />
 
@@ -30,6 +32,8 @@ export default {
 
   data() {
     return {
+      file: "",
+
       signUpKeys: [
         "name",
         "password",
@@ -58,9 +62,7 @@ export default {
       ],
     };
   },
-  mounted() {
-    
-  },
+  mounted() {},
   methods: {},
 };
 </script>
