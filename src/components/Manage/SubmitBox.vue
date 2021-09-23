@@ -6,6 +6,8 @@
         v-model="submitDataByStr"
         @input="OnChangeSubmitDataByStr"
         label="raw"
+        row-height="1"
+        auto-grow
         required
       ></v-textarea>
       <v-text-field v-model="path" label="path" required></v-text-field>
@@ -101,15 +103,25 @@ export default {
         });
     },
     reqAxiosPost(url) {
+
       let config = {
         headers: {
-          withCredentials: true,
+          "content-Type": "application/json",
+          Accept: "/",
+          "Cache-Control": "no-cache",
+          Cookie: document.cookie,
         },
+        credentials: "same-origin",
       };
+      axios.defaults.withCredentials = true;
+
       axios
         .post(url, this.submitData, config)
         .then((res) => {
           console.log(res);
+          // let userId = res.data.userId;
+          // console.log(userId);
+          // this.$cookies.set("userId", userId);
         })
         .catch((res) => {
           console.log(res);

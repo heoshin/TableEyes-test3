@@ -1,5 +1,6 @@
 <template>
   <div>
+  <input multiple @change="onInputImage" ref="serveyImage" type="file">
     <h1>Get</h1>
     <SubmitBox type="get" />
 
@@ -26,6 +27,7 @@ export default {
   components: {
     SubmitBox,
   },
+
   data() {
     return {
       signUpKeys: [
@@ -57,7 +59,7 @@ export default {
     };
   },
   mounted() {
-    this.$cookies.set("test", "12345");
+    
   },
   methods: {},
 };
