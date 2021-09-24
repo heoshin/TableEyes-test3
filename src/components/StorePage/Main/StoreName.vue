@@ -2,7 +2,7 @@
   <div class="storeName">
     <p>{{title}}</p>
     <div class="storeStar">
-      <span class="mainStoreStar"><span style="width: 90%"></span></span>
+      <span class="mainStoreStar"><span :style="starWidth"></span></span>
       <span class="star-1">{{star}}</span>
       <span class="star-2">|</span>
       <span class="distance">{{distance}}m</span>
@@ -17,6 +17,15 @@ export default {
     star: Number,
     distance: Number,
   },
+  data() {
+    return {
+      starWidth: {
+        "width": this.star * 20 + "%"
+      }
+    }
+  },
+  methods: {
+  }
 }
 </script>
 

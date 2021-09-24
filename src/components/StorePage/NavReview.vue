@@ -1,8 +1,14 @@
 <template>
   <div>
-    <AllReviewAvg />
-    <ReviewBar />
-    <ReviewPhotoBar />
+    <AllReviewAvg
+      totalStar="3.1"
+      totalKindStar="3.0"
+      totalcleanStar="2.5"
+      totalConvenienceStar="4.0"
+      totalAtmosphereStar="5.0"
+    />
+    <ReviewBar reviewCount="040207" />
+    <ReviewPhotoBar/>
     <PhotoReview />
     <NormalReview />
   </div>
