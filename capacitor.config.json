@@ -1,0 +1,6 @@
+{
+  "appId": "com.TableEyes.app",
+  "appName": "TableEyes",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}
