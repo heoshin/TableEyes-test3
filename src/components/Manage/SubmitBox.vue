@@ -58,38 +58,6 @@ export default {
         this.reqAxios(url);
       }
     },
-    reqAjax(url) {
-      $.ajax({
-        url: url,
-        type: this.type,
-        Headers: {
-          withCredentials: true,
-        },
-        success: (res) => {
-          console.log(res);
-        },
-        error: (res) => {
-          console.log(res);
-        },
-      });
-    },
-    reqAjaxPost(url) {
-      $.ajax({
-        url: url,
-        type: "post",
-        xhrFields: {
-          withCredentials: true,
-        },
-        data: this.submitData,
-        success: (res) => {
-          console.log(res);
-        },
-        error: (res) => {
-          console.log(res);
-        },
-      });
-    },
-
     reqAxios(url) {
       axios({
         method: this.type,
