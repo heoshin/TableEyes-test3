@@ -1,19 +1,19 @@
 <template>
   <div class="card">
     <div class="card-thumbnail">
-      <!-- <img :src="store.logo" /> -->
+      <img :src="store.logo" />
     </div>
     <div class="card-info">
       <div id="info-title">{{ store.name }}</div>
-      <!-- <span id="info-star" v-for="i in store.star" :key="i">★</span>
-      <span id="info-star" v-for="i in 5 - store.star" :key="i">☆</span> -->
+      <span class="mainStoreStar"><span :style="starWidth"></span></span>
+
       <div id="info-time">
-        <!-- <img src="@/assets/time.png" />{{ store.openTime }}~{{ store.closeTime }} -->
+        <img src="@/assets/time.png" />{{ store.openTime }}~{{ store.closeTime }}
       </div>
 
-      <div id="info-distance">100m<img src="@/assets/distance.png" /></div>
+      <div id="info-distance">{{distance}}m<img src="@/assets/distance.png" /></div>
       <div id="info-count">
-        <!-- <img :src="getCountSrc()" />{{ store.nowPerson }}/{{ store.maxPerson }} -->
+        <img :src="getCountSrc()" />{{ store.nowPerson }}/{{ store.maxPerson }}
       </div>
     </div>
   </div>
@@ -22,8 +22,16 @@
 <script>
 export default {
   name: "Card",
+  props: {
+    store: Object,
+  },
   data() {
-    return {};
+    return {
+      starWidth: {
+        width: this.store.detail.star * 20 + "%",
+      },
+      distance: 0,
+    };
   },
   methods: {
     getCountSrc() {
@@ -33,10 +41,6 @@ export default {
       let curCountSrc = 3;
       return curCountSrc;
     },
-    
-  },
-  props: {
-    store: Object,
   },
 };
 </script>
@@ -44,7 +48,8 @@ export default {
 <style scoped>
 .card {
   margin: 0 auto;
-  width: 100%; height: 100px;
+  width: 100%;
+  height: 100px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
 }
@@ -68,32 +73,48 @@ export default {
 .card-info {
   position: relative;
   float: left;
-  width: calc(100% - 150px);  height: 100%;
-  padding: 15px;
+  width: calc(100% - 100px);
+  height: 100%;
+  padding: 10px;
   box-sizing: border-box;
 }
 #info-title {
   font-size: 18px;
   font-weight: 900;
 }
-#info-star {
-  font-size: 18px;
-  color: #ffc000;
+
+.mainStoreStar {
+  width: 90px;
+  margin-top: 10px;
 }
+.mainStoreStar,
+.mainStoreStar span {
+  display: inline-block;
+  height: 12px;
+  overflow: hidden;
+  background: url(../../assets/img/star.png) no-repeat;
+  background-size: auto 24px;
+}
+.mainStoreStar span {
+  background-position: left bottom;
+  line-height: 0;
+  vertical-align: top;
+}
+
 #info-time {
-  margin-top: 20px;
-  line-height: 40px;
+  margin-top: 5px;
+  line-height: 30px;
   font-size: 20px;
 }
 #info-time img {
-  height: 20px;
+  height: 15px;
   padding-right: 5px;
   vertical-align: middle;
 }
 #info-distance {
   position: absolute;
+  top: 10px;
   right: 15px;
-  bottom: 70px;
   font-size: 16px;
 }
 #info-distance img {
@@ -102,9 +123,9 @@ export default {
 }
 #info-count {
   position: absolute;
+  top: 40px;
   right: 20px;
-  bottom: 10px;
-  font-size: 25px;
+  font-size: 18px;
   font-weight: bold;
 }
 #info-count img {
