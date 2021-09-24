@@ -5,7 +5,7 @@
       />
       <StoreName 
         title="스타벅스 송하네"
-        star=5.0
+        star="3.2"
         distance=240
       />
       <StoreBar 

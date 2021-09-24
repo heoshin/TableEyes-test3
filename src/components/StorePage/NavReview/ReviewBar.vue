@@ -2,7 +2,7 @@
   <article>
     <div class="reviewBar">
       <span class="reviewBar-title">리뷰</span>
-      <span class="reviewBar-num">1,800</span>
+      <span class="reviewBar-num">{{reviewCount}}</span>
       <div class="reviewBar-Photo">
         <input type="checkbox" />
         <span>사진리뷰만</span>
@@ -20,7 +20,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    reviewCount: Number,
+  }
+};
 </script>
 
 <style>
@@ -88,5 +92,7 @@ export default {};
   font-size: 14px;
   line-height: 16px;
   letter-spacing: 0.7px;
+
+  direction: rtl;
 }
 </style>
